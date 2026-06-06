@@ -34,7 +34,7 @@ probe時に`request_firmware()`で`/lib/firmware/pxw3pe.fw`から読み込みま
 [`firmware/README.md`](firmware/README.md)にあります。
 
 PLEX公式サイトでの配布はすでに終わっていますが、Wayback Machineから拾えるかもしれません。
-https://web.archive.org/web/20131001000000*/http://plex-net.co.jp/plex/PX-SERIES_ver.1.0_Linux_Driver.zip
+[https://web.archive.org/web/20131001000000*/http://plex-net.co.jp/plex/PX-SERIES_ver.1.0_Linux_Driver.zip](https://web.archive.org/web/20130401000000*/http://plex-net.co.jp/plex/px-w3pe/64bit.tar.gz)
 
 firmwareを入れずにロードしてもエラーにはなりません。ただしカード独自のスクランブルが
 かかったままのストリームしか出てこないので、まともには使えません。これは放送波のARIB
