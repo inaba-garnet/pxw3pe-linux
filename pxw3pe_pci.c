@@ -48,6 +48,14 @@
 #include <linux/firmware.h>
 #include <crypto/des.h>
 
+/*
+ * PCI_IRQ_LEGACY was renamed to PCI_IRQ_INTX in v6.11 and removed in v6.13+.
+ * Use PCI_IRQ_INTX everywhere and fall back to the old name on older kernels.
+ */
+#ifndef PCI_IRQ_INTX
+#define PCI_IRQ_INTX	PCI_IRQ_LEGACY
+#endif
+
 #define PXW3PE_NAME	"pxw3pe"
 
 /* TS packet/buffer geometry. */
@@ -3004,8 +3012,8 @@ static int pxw3pe_probe(struct pci_dev *pdev, const struct pci_device_id *id)
 	 * pci_irq_vector()/pci_free_irq_vectors() are always paired.
 	 */
 	ret = pci_alloc_irq_vectors(pdev, 1, 1,
-				    use_msi ? (PCI_IRQ_MSI | PCI_IRQ_LEGACY)
-					    : PCI_IRQ_LEGACY);
+				    use_msi ? (PCI_IRQ_MSI | PCI_IRQ_INTX)
+					    : PCI_IRQ_INTX);
 	if (ret < 0) {
 		dev_err(&pdev->dev, "alloc_irq_vectors failed: %d\n", ret);
 		goto err_dma;
