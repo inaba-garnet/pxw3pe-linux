@@ -1,0 +1,27 @@
+# kernel module build artifacts
+*.o
+*.o.*
+*.ko
+*.mod
+*.mod.c
+*.mod.o
+.*.cmd
+*.symvers
+*.order
+Module.symvers
+modules.order
+.tmp_versions/
+*.dwo
+
+# firmware tooling: NEVER publish RE'd secret key material or built artifacts
+*.fw
+firmware/wall_keys.py
+firmware/**/__pycache__/
+firmware/extract/asv_w.ko
+firmware/extract/harness
+firmware/extract/*.o
+
+# editor / OS noise
+*.swp
+*~
+.DS_Store
