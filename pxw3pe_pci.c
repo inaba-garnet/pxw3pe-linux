@@ -48,6 +48,11 @@
 #include <linux/firmware.h>
 #include <crypto/des.h>
 
+/* Linux 6.10 で PCI_IRQ_LEGACY は PCI_IRQ_INTX に改名され、旧名は後に削除された */
+#ifndef PCI_IRQ_LEGACY
+#define PCI_IRQ_LEGACY PCI_IRQ_INTX
+#endif
+
 #define PXW3PE_NAME	"pxw3pe"
 
 /* TS packet/buffer geometry. */
